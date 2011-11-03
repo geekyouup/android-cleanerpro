@@ -3,6 +3,7 @@ package com.geekyouup.android.thecleanerpro;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -20,7 +21,10 @@ public class Cleaner extends Activity {
         mView = (RelativeLayout) findViewById(R.id.mainview);
         mView.setFocusableInTouchMode(false);
 
-    	if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB) mView.setSystemUiVisibility(View.STATUS_BAR_HIDDEN);
+        if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB)
+    	{
+    		mView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
+    	}
         
         mWPM = WallpaperManager.getInstance(this);
     }
@@ -68,6 +72,13 @@ public class Cleaner extends Activity {
     		if(yWP > 1) yWP = 1;
     		mWPM.setWallpaperOffsets(mView.getWindowToken(), xWP, yWP);
     	}
+    	
+    	if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB)
+    	{
+    		mView.setSystemUiVisibility(View.STATUS_BAR_HIDDEN);
+    		Log.d("Cleaner", "Lights out");
+    	}
+    	
     	
     	return super.onTouchEvent(event);
     }

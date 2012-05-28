@@ -75,7 +75,7 @@ public class Cleaner extends Activity {
     	
     	if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.HONEYCOMB)
     	{
-    		mView.setSystemUiVisibility(View.STATUS_BAR_HIDDEN);
+    		mView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
     		Log.d("Cleaner", "Lights out");
     	}
     	

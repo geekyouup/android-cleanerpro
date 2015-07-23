@@ -1,0 +1,1 @@
+The Desktop Cleaner Widget hides your apps and widgets with one touch. The view on your desktop wallpaper has never been cleaner. Works with Live Wallpapers too.
